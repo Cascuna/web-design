@@ -1,0 +1,16 @@
+{
+  "name": "opdracht1",
+  "version": "1.0.0",
+  "description": "This project features a \"Inspiration\" photo gallery. The main focus is to source for pictures to use in web-designs, or just look at projects other people made.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nunjucks": "^3.1.3"
+  }
+}

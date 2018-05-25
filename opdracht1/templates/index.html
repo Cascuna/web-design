@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+</head>
+<body>
+</script>
+    <div id='primary-content'> 
+        <section class='slide-show' id='slide-show'>
+            {% set activeItem = slideShowItems | first %}
+            <img src=" {{ activeItem.image }} " id='background-img-0'>
+            <span class='container artist'>
+                <h3 > <span id='image-title'>{{ activeItem.title }}</span> </h3>
+                <h4>  <span id='artist-name'> door {{ activeItem.name }} </span></h4>
+            </span>
+            <span class='nav container' data-current-item="0" id='slide-show-nav'>
+                <ul>
+                    {% for item in slideShowItems %}
+                    <!-- <li><a href="#"{% if loop.first %} class="active" {% endif %}> {{ loop.index }} </a></li> -->
+                    <li><a href="#" onclick="slideImages(event)" {% if loop.first %} class="active" {% endif %} data-index="{{ loop.index0 }}"> {{ loop.index }} </a></li>
+                    {% endfor %}
+                    <!-- <li><a class='active' href="#">1</a></li>
+                    
+                    <li><a href="#">3</a></li> -->
+                </ul>
+            </span>
+            <span class='container introduction-text'>
+                <h2> Fotowereld.</h2>
+                <h3> Inspiratie -- Creativiteit -- Web-design </h3>
+            </span>
+
+            <span class="scroll-btn">
+                <a href="#image-gallery">
+                    <span class="mouse">
+                        <span>
+                        </span>
+                    </span>
+                </a>
+                <p>scroll me</p>
+            
+            </span>
+            
+    </section>
+ 
+
+
+<div class='gallery-container'>
+<section id='image-gallery'>
+    <!-- FAB STATIC -->
+    {% for artwork in artworks %}
+    <!-- <a href="/{{ loop.index0 }}"> -->
+        
+        <article>
+            <span href='/{{loop.index0}}' data-href='{{loop.index0}}' onclick='openPopup(this)'>
+            <div class='fabctr'>
+                <img src="{{ artwork.image }}" />
+                <span class='fab'> 
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <g>
+                        <path fill="#1D1D1B" d="M254.84,246.538c-50.803-50.796-50.789-133.443,0-184.238c50.794-50.795,133.43-50.795,184.237,0.007   c50.782,50.781,50.796,133.436,0,184.231C388.283,297.319,305.634,297.319,254.84,246.538z M419.231,82.153   c-39.858-39.851-104.688-39.851-144.546-0.006c-39.844,39.857-39.844,104.688,0,144.545c39.844,39.843,104.688,39.843,144.546,0   C459.075,186.834,459.075,121.997,419.231,82.153z"/>
+                        <path fill="#1D1D1B" d="M76.399,479.585c-10.958,10.95-28.736,10.95-39.693-0.014l-14.885-14.887   c-10.966-10.964-10.966-28.74-0.007-39.706L187.892,258.9c10.964-10.95,28.742-10.95,39.707,0.015l14.878,14.885   c10.964,10.95,10.964,28.742,0.007,39.707L76.399,479.585z"/>
+                        <path fill="#1D1D1B" d="M359.622,201.801c0,7.757-6.276,14.035-14.034,14.035l0,0c-7.757,0-14.035-6.278-14.035-14.035v-89.475   c0-7.75,6.278-14.035,14.035-14.035l0,0c7.758,0,14.034,6.284,14.034,14.035V201.801z"/>
+                        <path fill="#1D1D1B" d="M300.852,171.099c-7.758,0-14.035-6.277-14.035-14.035l0,0c0-7.758,6.277-14.036,14.035-14.036h89.474   c7.758,0,14.035,6.278,14.035,14.036l0,0c0,7.757-6.277,14.035-14.035,14.035H300.852z"/>
+                    </g>
+                    </svg>
+                </span>
+            </div>
+            <h2>{{ artwork.title }}</h2>
+            <p>{{ artwork.description |  truncate(150, true, "...") }}</p>
+        </span>
+        </article>
+    <!-- </a> -->
+    {% endfor %}
+
+
+</section>
+</div>
+</div>
+<script>
+function myFunction(event) {
+//    console.log(event.target.parentNode.getElementsByTagName('img')[0].style.height='50px')
+   console.log(event.target.parentNode.style.height='90vh')
+}
+
+
+
+</script>
+    <script src="./js/site.js"></script>
+</body>
+</html>
