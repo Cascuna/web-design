@@ -73,26 +73,35 @@ const slideShowItems = [
     }
   }
 
-  function openPopup(event) {
-    console.log(event);
-    let div = document.createElement("div");
-    div.classList.add("div-popup");
-    let header = document.createElement("header");
-    let headerH2 = document.createElement("h2");
-    let headerCloseBtn = document.createElement("a");
-    // header.classList.add("popup-header");
-    // headerCloseBtn.innerHTML = "exit";
-    // headerH2.innerHTML = "Dit is een titel";
-    // headerH2.classList.add("header-h2");
-    let img = document.createElement("img");
-    img.src = "./img/hero2.jpg";
-    img.classList.add("popup-img");
+  function exit(dis) {
     let firstSection = document.getElementById("primary-content");
-    firstSection.style.display = "none";
-    // header.appendChild(headerH2);
-    // header.appendChild(headerCloseBtn);
-    // div.appendChild(header);
-    div.appendChild(img);
-    document.body.insertBefore(div, firstSection);
+    firstSection.style.display = "";
+    let detailContainer = document.getElementById("detail-container");
+    document.body.removeChild(detailContainer);
+  }
+
+  function openPopup(event) {
+    let url = event.getAttribute("data-href");
+    console.log(url);
+    if (window.fetch) {
+      fetch("/" + url).then(htmlpage => {
+        var dummyDiv = document.createElement("div");
+        htmlpage.text().then(text => {
+          dummyDiv.innerHTML = text;
+          let actualDiv = dummyDiv.querySelector("#detail-container");
+          console.log(actualDiv);
+
+          let firstSection = document.getElementById("primary-content");
+          firstSection.style.display = "none";
+          document.body.insertBefore(actualDiv, firstSection);
+          window.scrollTo(0, 0);
+        });
+      });
+      event.preventDefault();
+
+      // event.preventDefault
+      //   ? event.preventDefault()
+      //   : (event.returnValue = false);
+    }
   }
 }

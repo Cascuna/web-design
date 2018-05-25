@@ -16,7 +16,7 @@ html {
 .gallery-container {
     position: relative;
     background-color: white;
-    z-index: 1;
+    z-index: 20;
 }
 
 #image-gallery {
@@ -30,7 +30,14 @@ html {
     
 }
 
+.popup-artwork {
+    grid-column: 2;
+}
 
+.popup.other-content {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+}
 
 .slide-show img, .popup-img {
     position: fixed;
@@ -39,7 +46,11 @@ html {
     /* animation: sliding-text 2s 1; */
 }
 
-.slide-show, .div-popup {
+.popup-img {
+    height: 80vh;
+}
+
+.slide-show {
     position: relative;
     margin: 0;
     width: 100%;
@@ -55,7 +66,9 @@ html {
     box-shadow: 0 .4em .5em rgba(0, 0, 0, 0.2);
 }
 
-.slide-show .container {
+
+
+  .container {
     position: relative;
     line-height: 2.3rem;
     color: white;
@@ -74,13 +87,14 @@ html {
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, .4);
     transition: .5s all ease-in;
 }
-.slide-show .artist h3 {
+.artist h3 {
     font-size: 1.6em;
+    color: rgba(255, 255, 255, .9);
     animation: sliding-text 2s 1;
     transition: .4s all ease-in;
 }
 
-.slide-show .artist h4 {
+.artist h4 {
     font-size: 1em;
     color: rgba(255, 255, 255, .9);
     animation: sliding-text 3s 1;
@@ -213,7 +227,8 @@ article {
     box-sizing: border-box;
     margin: 1em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    height: 70vh;
+    height: fit-content;
+    padding-bottom: .4em;
     border-radius: 5px;
     transition: 0.3s;
     position: relative;
@@ -295,20 +310,65 @@ article:hover .article-image::after {
     transition: .3s;
 }
 
+
 .div-popup {
-    height: 100vh;
-    width: 100vw;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    width: 80vw;
     z-index: 15;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 1fr 8fr 8fr;
+    box-shadow: 0 .4em .5em rgba(0, 0, 0, 0.2);
+}
+
+
+
+.header{
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+.artwork {
+    padding-top: 1em;
+    padding-left: .2em;
+    padding-bottom: 1em;
+
+}
+
+.description {
+    padding-left: 7vw;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .popup-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     font-size: 1.3em;
-    background-color: purple;
+    z-index: 1;
+
+}
+
+.artist.popup {
+    margin: 0;
+    position: relative;
+    margin-left: 6vw;
+    padding: 1.4em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.artist.popup h3 {
+    font-size: 2.3em;
+    line-height: 1.3em;
+}
+
+.artist.popup h4 {
+    font-size: 1.4em;
+    line-height: 1.3em;
 }
 
 .header-h2 {
@@ -320,7 +380,7 @@ article:hover .fabctr .fab {
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.2);
     transform: scale(1.1);
 }
-a svg {
+.fab svg {
     display: block;
     margin: auto;
     transform: translateY(40%);
@@ -329,7 +389,7 @@ a svg {
     fill: white;
 }
 
-a svg path {
+.fab svg path {
     fill: white;
 }
 
@@ -471,3 +531,51 @@ a svg path {
 p {
     margin-left: -55px;
   }
+
+
+.x {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    transition: transform .25s ease-in-out;
+    padding: 1.3em;
+    border: black solid;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 50%;
+}
+.x:hover {
+    transform: rotate(180deg);
+}
+.x:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 4px solid rgba(0,0,0,0.5);
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+.x:after {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 4px solid rgba(0,0,0,0.5);
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
