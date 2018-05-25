@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="static/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
 
 </head>
@@ -13,22 +13,38 @@
     <section class='slide-show'>
         <h2> Dit is een slideshow met plaatjes enzo </h2>
     </section>
-    <section class='image-gallery'>
-        <article>
-            <img src="static/img/image1.jpg" />
-            <h2>Een pakkende titel</h2>
-            <p>Er zijn vele variaties van passages van Lorem Ipsum beschikbaar..</p>
-            <button onclick="myFunction(event)"> Show more content </button>
+ 
+
+    </div>
+    <section id='image-gallery'>
+        
+         <article>
+            <a href='#open-modal' onclick='showModal(this)'>
+                <img src="./static/img/image1.jpg" />
+                <h2>Een pakkende titel</h2>
+                <p>Er zijn vele variaties van passages van Lorem Ipsum beschikbaar..</p>
+                <button onclick="myFunction(event)"> Show more content </button>
+            </a>
+            <div id="open-modal" class="modal-window">
+                <div>
+                    <a href="#modal-close" title="Close" class="modal-close">Close</a>
+                    <div> test</div>
+                </div>
+            </div>
         </article>
+       
+        <a class='modal-btn' href='#open-modal' onclick='showModal(this)'>
         <article>
-            <img src="static/img/image2.jpg" />
+            <img src="./static/img/image2.jpg" />
             <h2>Test</h2>
             <p>Bit of details</p>
         </article>
+        </a>
+        
 
         <article>
             <div class='article-image'>
-                <img src="static/img/image2.png"/>
+                <img src="./static/img/image2.png"/>
             </div>
             <h2>On hover overlay met uitleg</h2>
             <p>Bit of details</p>
@@ -72,6 +88,9 @@ function myFunction(event) {
 //    console.log(event.target.parentNode.getElementsByTagName('img')[0].style.height='50px')
    console.log(event.target.parentNode.style.height='90vh')
 }
+
+
+
 </script>
     </section>
     <script src="static/js/site.js"></script>
