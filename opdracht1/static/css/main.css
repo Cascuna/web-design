@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6em;
 }
 
@@ -32,14 +32,14 @@ html {
 
 
 
-.slide-show img {
+.slide-show img, .popup-img {
     position: fixed;
     height: 90vh;
     width: 100vw;
     /* animation: sliding-text 2s 1; */
 }
 
-.slide-show {
+.slide-show, .div-popup {
     position: relative;
     margin: 0;
     width: 100%;
@@ -229,15 +229,14 @@ article:hover {
 }
 
 article h2 {
-    margin: 0.3em 1em .3em 1em;
-    padding: 0em;
-    font-size: 2em;
-    line-height: 1.6em;
+    margin: 0.6em .3em .5em .5em;
+    font-size: 1.4em;
+    line-height: 1.18em;
     /* padding: 1em 1em 1em 1em; */
 }
 
 article p {
-    margin: 0em 2em 2em 2em;
+    margin: 0.6em 0.3em 0.5em 0.7em;
     /* padding: 0em 1em 1em 1em; */
 }
 
@@ -294,6 +293,27 @@ article:hover .article-image::after {
     height: 56px;
     box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.2);
     transition: .3s;
+}
+
+.div-popup {
+    height: 100vh;
+    width: 100vw;
+    z-index: 15;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 8fr 8fr;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+    background-color: purple;
+}
+
+.header-h2 {
+    padding: 1em;
+    font-size: 2.5em;
 }
 
 article:hover .fabctr .fab {

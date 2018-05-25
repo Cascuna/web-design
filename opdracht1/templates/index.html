@@ -12,83 +12,55 @@
 
 </head>
 <body>
-    <section class='slide-show' id='slide-show'>
-        {% set activeItem = slideShowItems | first %}
-        <img src=" {{ activeItem.image }} " id='background-img-0'>
-        <span class='container artist'>
-            <h3 > <span id='image-title'>{{ activeItem.title }}</span> </h3>
-            <h4>  <span id='artist-name'> door {{ activeItem.name }} </span></h4>
-        </span>
-        <span class='nav container' data-current-item="0" id='slide-show-nav'>
-            <ul>
-                {% for item in slideShowItems %}
-                <!-- <li><a href="#"{% if loop.first %} class="active" {% endif %}> {{ loop.index }} </a></li> -->
-                <li><a href="#" onclick="slideImages(event)" {% if loop.first %} class="active" {% endif %} data-index="{{ loop.index0 }}"> {{ loop.index }} </a></li>
-                {% endfor %}
-                <!-- <li><a class='active' href="#">1</a></li>
-                
-                <li><a href="#">3</a></li> -->
-            </ul>
-        </span>
-        <span class='container introduction-text'>
-            <h2> Fotowereld.</h2>
-            <h3> Inspiratie -- Creativiteit -- Web-design </h3>
-        </span>
+</script>
+    <div id='primary-content'> 
+        <section class='slide-show' id='slide-show'>
+            {% set activeItem = slideShowItems | first %}
+            <img src=" {{ activeItem.image }} " id='background-img-0'>
+            <span class='container artist'>
+                <h3 > <span id='image-title'>{{ activeItem.title }}</span> </h3>
+                <h4>  <span id='artist-name'> door {{ activeItem.name }} </span></h4>
+            </span>
+            <span class='nav container' data-current-item="0" id='slide-show-nav'>
+                <ul>
+                    {% for item in slideShowItems %}
+                    <!-- <li><a href="#"{% if loop.first %} class="active" {% endif %}> {{ loop.index }} </a></li> -->
+                    <li><a href="#" onclick="slideImages(event)" {% if loop.first %} class="active" {% endif %} data-index="{{ loop.index0 }}"> {{ loop.index }} </a></li>
+                    {% endfor %}
+                    <!-- <li><a class='active' href="#">1</a></li>
+                    
+                    <li><a href="#">3</a></li> -->
+                </ul>
+            </span>
+            <span class='container introduction-text'>
+                <h2> Fotowereld.</h2>
+                <h3> Inspiratie -- Creativiteit -- Web-design </h3>
+            </span>
 
-        <span class="scroll-btn">
-            <a href="#image-gallery">
-                <span class="mouse">
-                    <span>
+            <span class="scroll-btn">
+                <a href="#image-gallery">
+                    <span class="mouse">
+                        <span>
+                        </span>
                     </span>
-                </span>
-            </a>
-            <p>scroll me</p>
-        
-        </span>
-        
+                </a>
+                <p>scroll me</p>
+            
+            </span>
+            
     </section>
  
 
-</div>
-<div class='gallery-container'>
+
+    <div class='gallery-container'>
 
 
 <section id='image-gallery'>
 
-    <article>
-        <a href='#open-modal' onclick='showModal(this)'>
-            <img src="./img/image1.jpg" />
-            <h2>Een pakkende titel</h2>
-            <p>Er zijn vele variaties van passages van Lorem Ipsum beschikbaar..</p>
-            <button onclick="myFunction(event)"> Show more content </button>
-        </a>
-        <div id="open-modal" class="modal-window">
-            <div>
-                <a href="#modal-close" title="Close" class="modal-close">Close</a>
-                <div> test</div>
-            </div>
-        </div>
-    </article>
-    
-    <a class='modal-btn' href='#open-modal' onclick='showModal(this)'>
-    <article>
-        <img src="./img/image2.jpg" />
-        <h2>Test</h2>
-        <p>Bit of details</p>
-    </article>
-    </a>
-    
 
-    <article>
-        <div class='article-image'>
-            <img src="./img/image2.png"/>
-        </div>
-        <h2>On hover overlay met uitleg</h2>
-        <p>Bit of details</p>
-    </article>
 
     <!-- FAB STATIC -->
-    <article>
+    <article onclick='openPopup(event)'>
         <div class='fabctr'>
             <img src="./img/image2.gif" />
             <a class='fab'> 
@@ -105,22 +77,10 @@
         <p>Triggered een modal</p>
     </article>
 
-
-    <article>
-        <img src="./img/image4.png" />
-        <h2>Test</h2>
-        <p>Bit of details</p>
-    </article>
-
-    <article>
-        <img src="./img/image6.png" />
-        <h2>Test</h2>
-        <p>Bit of details</p>
-    </article>
-
     <dialog id="myDialog">This is an open dialog window</dialog>
 
 </section>
+</div>
 </div>
 <script>
 function myFunction(event) {

@@ -72,4 +72,27 @@ const slideShowItems = [
       currTarget.classList.add("active");
     }
   }
+
+  function openPopup(event) {
+    console.log(event);
+    let div = document.createElement("div");
+    div.classList.add("div-popup");
+    let header = document.createElement("header");
+    let headerH2 = document.createElement("h2");
+    let headerCloseBtn = document.createElement("a");
+    // header.classList.add("popup-header");
+    // headerCloseBtn.innerHTML = "exit";
+    // headerH2.innerHTML = "Dit is een titel";
+    // headerH2.classList.add("header-h2");
+    let img = document.createElement("img");
+    img.src = "./img/hero2.jpg";
+    img.classList.add("popup-img");
+    let firstSection = document.getElementById("primary-content");
+    firstSection.style.display = "none";
+    // header.appendChild(headerH2);
+    // header.appendChild(headerCloseBtn);
+    // div.appendChild(header);
+    div.appendChild(img);
+    document.body.insertBefore(div, firstSection);
+  }
 }
